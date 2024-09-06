@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/Login.dart';
+import 'package:ecommerce_app/Screens/Splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +10,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.brown,
+        scaffoldBackgroundColor: Colors.white,
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(),
+          prefixIconColor: Colors.black,
+          suffixIconColor: Colors.black,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      home: Homescreen(),
+      home: const SplashView(),
     );
   }
 }
