@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:ecommerce_app/Screens/Login/Login_view.dart';
+import 'package:ecommerce_app/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -17,7 +16,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const Homescreen()),
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
       );
     });
   }

@@ -1,5 +1,5 @@
+import 'package:ecommerce_app/Custom%20Widgets/customlink.dart';
 import 'package:ecommerce_app/Screens/Login/Login_widgets/loginform.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Homescreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.only(top: 100),
+          padding: const EdgeInsets.only(top: 120),
           child: const Column(
             children: [
               Text(
@@ -70,24 +70,7 @@ class _HomescreenState extends State<Homescreen> {
               SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Signup",
-                    style: TextStyle(
-                        color: Colors.brown,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.brown),
-                  ),
-                ],
-              )
+              Customlink(quest: "Don't have an account?", link: "Sign Up")
             ],
           ),
         ),

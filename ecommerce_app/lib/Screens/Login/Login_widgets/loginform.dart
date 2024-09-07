@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Custom%20Widgets/custombtn.dart';
 import 'package:ecommerce_app/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -71,26 +72,9 @@ class _LoginformState extends State<Loginform> {
               ],
             ),
             const SizedBox(height: 20),
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const WelcomeScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      Colors.brown, // Set the background color to brown
-                ),
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
+            const Custombtn(
+              btntext: "Sign In",
+              navgt: WelcomeScreen(),
             ),
             const SizedBox(width: 20),
           ],
