@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/Custom%20Widgets/custombtn.dart';
-import 'package:ecommerce_app/Screens/Welcome/welcome_screen.dart';
+import 'package:ecommerce_app/Screens/Login/login_view.dart';
 import 'package:flutter/material.dart';
 
 class Loginform extends StatefulWidget {
@@ -74,7 +74,7 @@ class _LoginformState extends State<Loginform> {
             const SizedBox(height: 20),
             const Custombtn(
               btntext: "Sign In",
-              navgt: WelcomeScreen(),
+              navgt: Homescreen(),
             ),
             const SizedBox(width: 20),
           ],

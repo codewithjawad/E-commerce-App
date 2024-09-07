@@ -9,7 +9,7 @@ class Imgwidget extends StatelessWidget {
       children: [
         Container(
           height: 320,
-          width: MediaQuery.of(context).size.width * 0.45,
+          width: MediaQuery.of(context).size.width * 0.40,
           decoration: BoxDecoration(
             borderRadius:
                 BorderRadius.circular(100), // Set the desired border radius
@@ -22,7 +22,7 @@ class Imgwidget extends StatelessWidget {
           children: [
             SizedBox(
               height: 150,
-              width: MediaQuery.of(context).size.width * 0.45,
+              width: MediaQuery.of(context).size.width * 0.50,
               // Ensure the child is clipped to the rounded shape
               child: const CircleAvatar(
                 backgroundImage: AssetImage('assests/clothdesign.jpg'),

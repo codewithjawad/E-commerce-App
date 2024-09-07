@@ -10,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.only(top: 40, left: 15, right: 5),
+          padding: const EdgeInsets.only(top: 40, left: 15),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: const Column(
