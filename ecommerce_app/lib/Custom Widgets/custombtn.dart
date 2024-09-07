@@ -12,7 +12,7 @@ class Custombtn extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => navgt),
           );
