@@ -74,7 +74,7 @@ class _LoginformState extends State<Loginform> {
             const SizedBox(height: 20),
             const Custombtn(
               btntext: "Sign In",
-              navgt: Homescreen(),
+              navgt: LoginView(),
             ),
             const SizedBox(width: 20),
           ],

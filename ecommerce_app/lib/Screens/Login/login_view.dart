@@ -2,14 +2,14 @@ import 'package:ecommerce_app/Custom%20Widgets/customlink.dart';
 import 'package:ecommerce_app/Screens/Login/Login_widgets/loginform.dart';
 import 'package:flutter/material.dart';
 
-class Homescreen extends StatefulWidget {
-  const Homescreen({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<Homescreen> createState() => _HomescreenState();
+  State<LoginView> createState() => _HomescreenState();
 }
 
-class _HomescreenState extends State<Homescreen> {
+class _HomescreenState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

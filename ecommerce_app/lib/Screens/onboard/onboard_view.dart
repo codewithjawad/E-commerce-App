@@ -91,7 +91,7 @@ class _OnboardViewState extends State<OnboardView> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const Homescreen(),
+                      builder: (_) => const LoginView(),
                     ),
                   );
                 } else {
