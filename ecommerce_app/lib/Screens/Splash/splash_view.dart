@@ -19,7 +19,7 @@ class _SplashViewState extends State<SplashView> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                const WelcomeScreen()), // welcome ki jgha kr rha hooon
+                const HomeView()), // welcome ki jgha kr rha hooon
       );
     });
   }

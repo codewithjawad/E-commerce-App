@@ -62,14 +62,12 @@ class _SliderviewState extends State<Sliderview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Image Slider'),
-      ),
       body: Column(
         children: [
           // Wrap the CarouselSlider with SizedBox to control height
-          Container(
-            height: 200,
+          SizedBox(
+            height: 150,
+            width: MediaQuery.of(context).size.width,
             child: CarouselSlider(
               items: imageSliders,
               carouselController: _controller,
