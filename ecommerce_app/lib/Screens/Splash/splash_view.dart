@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:ecommerce_app/Screens/Home/home_view.dart';
 import 'package:ecommerce_app/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class _SplashViewState extends State<SplashView> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                const HomeView()), // welcome ki jgha kr rha hooon
+                const WelcomeScreen()), // welcome ki jgha kr rha hooon
       );
     });
   }

@@ -45,7 +45,7 @@ class _SliderviewState extends State<Sliderview> {
                             ),
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10.0, horizontal: 20.0),
-                            child: Text('')),
+                            child: const Text('')),
                       ),
                     ],
                   )),

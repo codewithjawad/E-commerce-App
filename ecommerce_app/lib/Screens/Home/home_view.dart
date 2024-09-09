@@ -14,7 +14,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Appbarview(),
-      body: Container(height: 500, child: const Sliderview()),
+      body: SizedBox(height: 500, child: const Sliderview()),
     );
   }
 }
