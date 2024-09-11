@@ -7,7 +7,7 @@ class Appbarview extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final TextEditingController searchController = TextEditingController();
     return AppBar(
-      backgroundColor: const Color.fromARGB(255, 255, 253, 253),
+      backgroundColor: Colors.white,
       title: Row(
         children: [
           const Text("Hi!"),

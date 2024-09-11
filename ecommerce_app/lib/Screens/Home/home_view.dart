@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/Screens/Home/home_widgets/appbarview.dart';
-import 'package:ecommerce_app/Screens/Home/home_widgets/slider.dart';
+import 'package:ecommerce_app/Screens/Home/home_widgets/product.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -12,9 +12,9 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const Appbarview(),
-      body: SizedBox(height: 500, child: const Sliderview()),
+    return const Scaffold(
+      appBar: Appbarview(),
+      body: Product(),
     );
   }
 }
