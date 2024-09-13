@@ -2,9 +2,7 @@ import 'package:ecommerce_app/Screens/Home/home_widgets/category.dart';
 import 'package:ecommerce_app/Screens/Home/home_widgets/gridview.dart';
 import 'package:ecommerce_app/Screens/Home/home_widgets/slider.dart';
 import 'package:ecommerce_app/Screens/Home/productmap.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class Product extends StatefulWidget {
   const Product({super.key});
@@ -74,20 +72,6 @@ class _ProductState extends State<Product> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: ConvexAppBar(
-        style: TabStyle.custom,
-        color: Colors.black,
-        backgroundColor: Colors.white,
-        activeColor: Colors.black,
-        items: const [
-          TabItem(icon: Icons.home),
-          TabItem(icon: Icons.shopify),
-          TabItem(icon: CupertinoIcons.heart),
-          TabItem(icon: Icons.chat),
-          TabItem(icon: Icons.person),
-        ],
-        initialActiveIndex: 0,
       ),
     );
   }

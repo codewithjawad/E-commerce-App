@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Screens/cart/cart.dart';
 import 'package:flutter/material.dart';
 
 class Appbarview extends StatelessWidget implements PreferredSizeWidget {
@@ -9,13 +10,16 @@ class Appbarview extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       title: Row(
         children: [
-          const Text("Hi!", style: TextStyle(color: Colors.black)),
+          const Text("Hi Jawwad!", style: TextStyle(color: Colors.black)),
           const Spacer(),
           ClipOval(
             child: IconButton(
-              icon: const Icon(Icons.shopping_basket_sharp),
+              icon: const Icon(Icons.shopping_cart_checkout),
               onPressed: () {
-                // Add your notification action here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Cart()),
+                );
               },
             ),
           ),

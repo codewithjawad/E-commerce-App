@@ -63,9 +63,7 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () => {
-                        
-                      },
+                      onPressed: () => {},
                       icon: const Icon(CupertinoIcons.heart),
                     ),
                     Row(
@@ -73,8 +71,9 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
                         IconButton(
                           onPressed: () => "",
                           icon: const Icon(Icons.star),
+                          color: Colors.amber[600],
                         ),
-                        const Text("4.9")
+                        Text("${productmap.elementAt(widget.i)['rating']}")
                       ],
                     ),
                   ],
