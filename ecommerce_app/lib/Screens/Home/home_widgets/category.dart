@@ -24,28 +24,48 @@ class Category extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundColor: Color.fromARGB(255, 230, 230, 230),
-                  child: Icon(Icons.abc),
+                  backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+                  child: SizedBox(
+                      height: 50,
+                      child: Image.asset(
+                        "assests/shirts.png",
+                        color: Colors.brown,
+                      )),
                 ),
                 CircleAvatar(
                   radius: 40,
-                  backgroundColor: Color.fromARGB(255, 230, 230, 230),
-                  child: Icon(Icons.abc),
+                  backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+                  child: SizedBox(
+                      height: 50,
+                      child: Image.asset(
+                        "assests/pants.png",
+                        color: Colors.brown,
+                      )),
                 ),
                 CircleAvatar(
                   radius: 40,
-                  backgroundColor: Color.fromARGB(255, 230, 230, 230),
-                  child: Icon(Icons.abc),
+                  backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+                  child: SizedBox(
+                      height: 50,
+                      child: Image.asset(
+                        "assests/jackets.png",
+                        color: Colors.brown,
+                      )),
                 ),
                 CircleAvatar(
                   radius: 40,
-                  backgroundColor: Color.fromARGB(255, 230, 230, 230),
-                  child: Icon(Icons.abc),
+                  backgroundColor: const Color.fromARGB(255, 230, 230, 230),
+                  child: SizedBox(
+                      height: 50,
+                      child: Image.asset(
+                        "assests/shorts.png",
+                        color: Colors.brown,
+                      )),
                 )
               ],
             ),

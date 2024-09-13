@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/Screens/Home/home_view.dart';
+import 'package:ecommerce_app/Screens/Splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+      home: const SplashView(),
     );
   }
 }

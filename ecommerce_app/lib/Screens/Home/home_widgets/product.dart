@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/Screens/Home/home_widgets/category.dart';
+import 'package:ecommerce_app/Screens/Home/home_widgets/gridview.dart';
 import 'package:ecommerce_app/Screens/Home/home_widgets/slider.dart';
 import 'package:ecommerce_app/Screens/Home/productmap.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,12 +14,42 @@ class Product extends StatefulWidget {
 }
 
 class _ProductState extends State<Product> {
+  final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 10),
+                  height: 40,
+                  width: 250,
+                  child: TextFormField(
+                    controller: searchController,
+                    decoration: const InputDecoration(
+                      labelText: 'Search',
+                      hintText: 'Search',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                      ),
+                    ),
+                    style: const TextStyle(
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                ClipOval(
+                  child: IconButton(
+                    icon: const Icon(Icons.filter_list),
+                    onPressed: () {},
+                  ),
+                ),
+              ],
+            ),
             SizedBox(
               height: 180,
               width: MediaQuery.of(context).size.width,
@@ -36,70 +67,8 @@ class _ProductState extends State<Product> {
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10),
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 233, 232, 232),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          topRight: Radius.circular(16),
-                        ),
-                        child: Image.asset(
-                          height: 170,
-                          width: double.infinity,
-                          productmap.elementAt(index)['images'],
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(06),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${productmap.elementAt(index)['title']}",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .merge(const TextStyle(
-                                      fontWeight: FontWeight.w700)),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "${productmap.elementAt(index)['price']}",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .merge(const TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  )),
-                            ),
-                            const SizedBox(
-                              height: 4,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                IconButton(
-                                  onPressed: () => "",
-                                  icon: const Icon(CupertinoIcons.heart),
-                                ),
-                                IconButton(
-                                  onPressed: () => "",
-                                  icon: const Icon(Icons.shopping_cart_rounded),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                return Gridviewwidget(
+                  i: index,
                 );
               },
             ),
@@ -118,8 +87,7 @@ class _ProductState extends State<Product> {
           TabItem(icon: Icons.chat),
           TabItem(icon: Icons.person),
         ],
-        initialActiveIndex: 1,
-        onTap: (int i) => print('click index=$i'),
+        initialActiveIndex: 0,
       ),
     );
   }
