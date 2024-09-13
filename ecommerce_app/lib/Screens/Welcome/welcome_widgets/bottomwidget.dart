@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/Custom%20Widgets/custombtn.dart';
 import 'package:ecommerce_app/Custom%20Widgets/customlink.dart';
+import 'package:ecommerce_app/Screens/Login/login_view.dart';
 import 'package:ecommerce_app/Screens/onboard/onboard_view.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,11 @@ class Bottomwidget extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Customlink(quest: "Already have an account? ", link: "Sign In")
+              Customlink(
+                quest: "Already have an account? ",
+                link: "Sign In",
+                navigate_To: LoginView(),
+              )
             ],
           )
         ],

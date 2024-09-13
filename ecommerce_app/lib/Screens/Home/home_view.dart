@@ -16,12 +16,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _currentIndex = 0;
+  int _currentIndex = 2;
 
   final List<Widget> _pages = [
-    const Product(),
-    const Cart(),
     const Wishlist(),
+    const Cart(),
+    const Product(),
     const Chat(),
     const Profile(),
   ];
@@ -36,16 +36,16 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const Appbarview(),
-      body: _pages[_currentIndex], 
+      body: _pages[_currentIndex],
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.custom,
         color: Colors.black,
         backgroundColor: Colors.white,
         activeColor: Colors.black,
         items: const [
-          TabItem(icon: Icons.home),
-          TabItem(icon: Icons.shopping_cart_checkout),
           TabItem(icon: CupertinoIcons.heart),
+          TabItem(icon: Icons.shopping_cart_checkout),
+          TabItem(icon: Icons.home),
           TabItem(icon: Icons.chat),
           TabItem(icon: Icons.person),
         ],

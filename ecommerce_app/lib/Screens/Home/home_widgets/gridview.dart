@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/Screens/Home/productmap.dart';
+import 'package:ecommerce_app/Screens/productdetails/details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,17 +22,24 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(16),
-              topRight: Radius.circular(16),
-            ),
-            child: Image.asset(
-              height: 170,
-              width: double.infinity,
-              productmap.elementAt(widget.i)['images'], // Use widget.index
-              fit: BoxFit.cover,
-            ),
-          ),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(16),
+                topRight: Radius.circular(16),
+              ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Details()),
+                  );
+                },
+                child: Image.asset(
+                  height: 170,
+                  width: double.infinity,
+                  productmap.elementAt(widget.i)['images'], // Use widget.index
+                  fit: BoxFit.cover,
+                ),
+              )),
           Padding(
             padding: const EdgeInsets.all(06),
             child: Column(

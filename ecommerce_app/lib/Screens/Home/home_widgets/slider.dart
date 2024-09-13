@@ -66,7 +66,7 @@ class _SliderviewState extends State<Sliderview> {
         children: [
           // Wrap the CarouselSlider with SizedBox to control height
           SizedBox(
-            height: 150,
+            height: 140,
             width: MediaQuery.of(context).size.width,
             child: CarouselSlider(
               items: imageSliders,

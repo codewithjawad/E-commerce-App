@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/Custom%20Widgets/customlink.dart';
 import 'package:ecommerce_app/Screens/Login/Login_widgets/loginform.dart';
+import 'package:ecommerce_app/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -70,7 +71,7 @@ class _HomescreenState extends State<LoginView> {
               SizedBox(
                 height: 10,
               ),
-              Customlink(quest: "Don't have an account?", link: "Sign Up")
+              Customlink(quest: "Don't have an account?", link: "Sign Up",navigate_To: WelcomeScreen(),)
             ],
           ),
         ),
