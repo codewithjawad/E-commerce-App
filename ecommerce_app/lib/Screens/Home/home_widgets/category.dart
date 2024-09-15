@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Screens/Home/home_widgets/subcategory.dart';
 import 'package:flutter/material.dart';
 
 class Category extends StatelessWidget {
@@ -82,79 +83,7 @@ class Category extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-              padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
-              child: const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          "All",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          "Newest",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          "Popular",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          "Men",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          "Women",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Text(
-                          "Winter",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )),
-                  ],
-                ),
-              )),
+          const Subcategory()
         ],
       ),
     );

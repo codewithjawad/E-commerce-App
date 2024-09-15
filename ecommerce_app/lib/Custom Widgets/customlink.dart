@@ -4,7 +4,11 @@ class Customlink extends StatelessWidget {
   final String quest;
   final String link;
   final navigate_To;
-  const Customlink({super.key, required this.quest, required this.link,required this.navigate_To});
+  const Customlink(
+      {super.key,
+      required this.quest,
+      required this.link,
+      required this.navigate_To});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +21,21 @@ class Customlink extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        InkWell(onTap: () {
-          Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => navigate_To),
-        );
-        },child: Text(
-          link,
-          style: const TextStyle(
-              color: Colors.brown,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.brown),
-        ),)
+        InkWell(
+          onTap: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => navigate_To),
+            );
+          },
+          child: Text(
+            link,
+            style: const TextStyle(
+                color: Colors.brown,
+                decoration: TextDecoration.underline,
+                decorationColor: Colors.brown),
+          ),
+        )
       ],
     );
   }

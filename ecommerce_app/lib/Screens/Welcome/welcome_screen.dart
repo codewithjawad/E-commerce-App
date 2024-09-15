@@ -12,8 +12,8 @@ class WelcomeScreen extends StatelessWidget {
           child: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(top: 40, left: 15),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 100,
+          width: MediaQuery.of(context).size.width * 100,
           child: const Column(
             children: [Imgwidget(), Bottomwidget()],
           ),

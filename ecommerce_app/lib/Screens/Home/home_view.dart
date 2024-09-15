@@ -32,10 +32,50 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
+  PreferredSizeWidget _buildCustomAppBar() {
+    switch (_currentIndex) {
+      case 0:
+        return AppBar(
+            title: const Center(
+          child: Text("Wishlist"),
+        ));
+      case 1:
+        return AppBar(
+          title: const Text('My Cart',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold)),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
+        );
+      case 3:
+        return AppBar(
+          title: const Text("Chat"),
+          backgroundColor: Colors.green,
+        );
+      case 4:
+        return AppBar(
+          title:
+              const Text('My Profile', style: TextStyle(color: Colors.black)),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
+        );
+      default:
+        return const Appbarview(); // Default for "Product" tab
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const Appbarview(),
+      appBar: _currentIndex == 2
+          ? const Appbarview() // Show Appbarview only for "Product" tab
+          : _buildCustomAppBar(), // Show custom app bar for other tabs
       body: _pages[_currentIndex],
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.custom,

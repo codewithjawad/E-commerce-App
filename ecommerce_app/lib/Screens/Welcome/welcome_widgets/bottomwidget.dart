@@ -10,10 +10,11 @@ class Bottomwidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.48,
+      height: MediaQuery.of(context).size.height * 0.5,
       width: MediaQuery.of(context).size.width * 100,
       padding: const EdgeInsets.only(top: 10),
       child: const Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
