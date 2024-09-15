@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/Custom%20Widgets/customlink.dart';
 import 'package:ecommerce_app/Screens/Login/Login_widgets/loginform.dart';
-import 'package:ecommerce_app/Screens/Welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {

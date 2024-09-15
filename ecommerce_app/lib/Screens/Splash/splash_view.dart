@@ -10,27 +10,15 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  String full = '';
-  String cloth = '';
-  String girl = '';
-
   @override
   void initState() {
     super.initState();
-    full = 'assets/fullpic.jpg';
-    cloth = 'assets/clothdesign.jpg';
-    girl = 'assets/girlshopping.jpg';
-    
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => WelcomeScreen(
-            fullPi: full,
-            clothDesign: cloth,
-            girlShopping: girl,
-          ),
-        ),
+            builder: (context) =>
+                const WelcomeScreen()), // welcome ki jgha kr rha hooon
       );
     });
   }
