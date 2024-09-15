@@ -1,5 +1,4 @@
-import 'package:ecommerce_app/Custom%20Widgets/custombtn.dart';
-import 'package:ecommerce_app/Screens/Home/home_view.dart';
+import 'package:ecommerce_app/Screens/orderdetail/vieworder.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodsScreen extends StatelessWidget {
@@ -12,6 +11,7 @@ class PaymentMethodsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Credit & Debit Card'),
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -19,7 +19,7 @@ class PaymentMethodsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildPaymentMethodTile(
-              icon: const Icon(Icons.payment), // Use an appropriate icon
+              icon: const Icon(Icons.payment),
               title: 'card',
               value: 'Add new Card',
               selectedPaymentMethod: selectedPaymentMethod,
@@ -32,28 +32,52 @@ class PaymentMethodsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             _buildPaymentMethodTile(
-              icon: const Icon(Icons.payment), // Use an appropriate icon
+              icon: const Icon(Icons.payment),
               title: 'PayPal',
               value: 'paypal',
               selectedPaymentMethod: selectedPaymentMethod,
               onChanged: (value) {},
             ),
             _buildPaymentMethodTile(
-              icon: const Icon(Icons.apple), // Use an appropriate icon
+              icon: const Icon(Icons.apple),
               title: 'Apple Pay',
               value: 'apple_pay',
               selectedPaymentMethod: selectedPaymentMethod,
               onChanged: (value) {},
             ),
             _buildPaymentMethodTile(
-              icon: const Icon(Icons.android), // Use an appropriate icon
+              icon: const Icon(Icons.android),
               title: 'Google Pay',
               value: 'google_pay',
               selectedPaymentMethod: selectedPaymentMethod,
               onChanged: (value) {},
             ),
             const Spacer(),
-            const Custombtn(btntext: "Confrim Payment", navgt: HomeView())
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil<void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) =>
+                          const PaymentSuccessfulScreen(),
+                    ),
+                    ModalRoute.withName('/'),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.brown,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 60, vertical: 14.0),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Confirm Payment',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                )),
           ],
         ),
       ),

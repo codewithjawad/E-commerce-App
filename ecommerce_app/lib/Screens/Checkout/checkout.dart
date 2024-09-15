@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class CheckoutScreen extends StatelessWidget {
   final List<Map<String, dynamic>> orderItems;
 
-  // Constructor to receive the orderItems data
   const CheckoutScreen({super.key, required this.orderItems});
 
   @override
@@ -14,16 +13,13 @@ class CheckoutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Center(
-          child: Text('Checkout'),
-        ),
+        title: const Text('Checkout'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Shipping Address
             const Text('Shipping Address',
                 style: TextStyle(fontWeight: FontWeight.bold)),
             Row(
@@ -33,34 +29,26 @@ class CheckoutScreen extends StatelessWidget {
                 const Spacer(),
                 TextButton(
                   child: const Text('CHANGE'),
-                  onPressed: () {
-                    // Handle change shipping address logic
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
             const Text('gulshan block 19 Karachi'),
-
-            // Shipping Type
             const SizedBox(height: 16.0),
             const Text('Choose Shipping Type',
                 style: TextStyle(fontWeight: FontWeight.bold)),
             Row(
               children: [
-                const Icon(Icons.delivery_dining),
+                const Icon(Icons.local_shipping),
                 const Text('Economy'),
                 const Spacer(),
                 TextButton(
                   child: const Text('CHANGE'),
-                  onPressed: () {
-                    // Handle change shipping type logic
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
             const Text('Estimate delivery time 5 to 7 days'),
-
-            // Order List
             const SizedBox(height: 16.0),
             const Text('Order List',
                 style: TextStyle(fontWeight: FontWeight.bold)),
@@ -68,8 +56,6 @@ class CheckoutScreen extends StatelessWidget {
                 child: Order(
               items: orderItems,
             )),
-
-            // Continue to Payment Button
             const SizedBox(height: 16.0),
             const Custombtn(
               btntext: "Continue to Payment",
