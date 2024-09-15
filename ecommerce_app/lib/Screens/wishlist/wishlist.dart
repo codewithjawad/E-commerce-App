@@ -9,11 +9,9 @@ class Wishlist extends StatefulWidget {
 }
 
 class _WishlistState extends State<Wishlist> {
-  void _removeFromWishlist(int indexx) {
+  void _removeFromWishlist(int itemIndex) {
     setState(() {
-      if (indexx >= 0 && indexx < Gridviewwidget.wishlistItems.length) {
-        Gridviewwidget.wishlistItems.remove(indexx);
-      }
+      Gridviewwidget.wishlistItems.remove(itemIndex);
     });
   }
 
@@ -40,7 +38,7 @@ class _WishlistState extends State<Wishlist> {
                 int itemIndex = Gridviewwidget.wishlistItems[index];
                 return Gridviewwidget(
                   i: itemIndex,
-                  onRemove: () => _removeFromWishlist(index),
+                  onRemove: () => _removeFromWishlist(itemIndex),
                 );
               },
             ),

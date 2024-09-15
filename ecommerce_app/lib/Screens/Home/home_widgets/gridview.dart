@@ -7,7 +7,7 @@ class Gridviewwidget extends StatefulWidget {
   final int i;
   final VoidCallback? onRemove;
 
-  static List<int> wishlistItems = []; 
+  static List<int> wishlistItems = [];
 
   const Gridviewwidget({super.key, required this.i, this.onRemove});
 
@@ -16,11 +16,17 @@ class Gridviewwidget extends StatefulWidget {
 }
 
 class _GridviewwidgetState extends State<Gridviewwidget> {
-  bool isInWishlist = false;
+  late bool isInWishlist;
 
   @override
   void initState() {
     super.initState();
+    isInWishlist = Gridviewwidget.wishlistItems.contains(widget.i);
+  }
+
+  @override
+  void didUpdateWidget(covariant Gridviewwidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
     isInWishlist = Gridviewwidget.wishlistItems.contains(widget.i);
   }
 
@@ -55,7 +61,7 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
               child: Image.asset(
                 height: 170,
                 width: double.infinity,
-                productmap.elementAt(widget.i)['images'], 
+                productmap.elementAt(widget.i)['images'],
                 fit: BoxFit.cover,
               ),
             ),
@@ -109,7 +115,6 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
                         color: isInWishlist ? Colors.red : Colors.black,
                       ),
                     ),
-
                     Row(
                       children: [
                         IconButton(
