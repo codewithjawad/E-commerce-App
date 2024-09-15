@@ -95,7 +95,7 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
                       onPressed: () {
                         setState(() {
                           if (isInWishlist) {
-                            Gridviewwidget.wishlistItems.remove(widget.i);
+                            Gridviewwidget.wishlistItems.removeAt(widget.i);
                             widget.onRemove?.call();
                           } else {
                             Gridviewwidget.wishlistItems.add(widget.i);
