@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/cartlist.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
@@ -129,7 +130,7 @@ class _DetailsState extends State<Details> {
               Row(
                 children: [
                   Colors.black,
-                  Colors.yellow,
+                  Colors.brown,
                   Colors.blue,
                 ].map((color) {
                   return GestureDetector(
@@ -146,7 +147,7 @@ class _DetailsState extends State<Details> {
                         color: color,
                         border: Border.all(
                           color: selectedColor == color
-                              ? Colors.brown
+                              ? Colors.black
                               : Colors.transparent,
                           width: 2,
                         ),
@@ -177,7 +178,19 @@ class _DetailsState extends State<Details> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      // Add item to cart
+                      setState(() {
+                        cartItems.add({
+                          'title': widget.imgtitle,
+                          'price': widget.price,
+                          'imagePath': widget.imgpath,
+                        });
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Added to Cart')),
+                      );
+                    },
                     child: const Text(
                       'Add To Cart',
                       style: TextStyle(fontSize: 16, color: Colors.white),

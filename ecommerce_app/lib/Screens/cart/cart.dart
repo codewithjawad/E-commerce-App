@@ -1,112 +1,95 @@
+import 'package:ecommerce_app/Screens/cart/bottompromo.dart';
+import 'package:ecommerce_app/cartlist.dart'; // Assuming this file contains cartItems list
 import 'package:flutter/material.dart';
 
-class Cart extends StatelessWidget {
+class Cart extends StatefulWidget {
   const Cart({super.key});
 
+  @override
+  State<Cart> createState() => _CartState();
+}
+
+class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          // Cart Items
-          Expanded(
-            child: ListView(
-              children: const [],
-            ),
-          ),
-          // Promo Code Section
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Promo Code',
-                          ),
+          cartItems.isEmpty
+              ? const Expanded(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          size: 100,
+                          color: Colors.grey,
                         ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.brown,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
+                        SizedBox(height: 20),
+                        Text(
+                          'Your cart is empty',
+                          style: TextStyle(fontSize: 20, color: Colors.grey),
                         ),
-                        child: const Text(
-                          'Apply',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                // Price Summary
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Sub-Total'),
-                    Text('\$ 0'),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Delivery Fee'),
-                    Text('\$ 0'),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Discount'),
-                    Text('\$ 0'),
-                  ],
-                ),
-                const SizedBox(height: 5),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Total Cost',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text('\$ 0', style: TextStyle(fontWeight: FontWeight.bold)),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                // Checkout Button
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 15),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
-                      'Proceed To Checkout',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      ],
                     ),
                   ),
+                )
+              : Expanded(
+                  child: ListView.builder(
+                    itemCount: cartItems.length,
+                    itemBuilder: (context, index) {
+                      final item = cartItems[index];
+
+                      // Null checks for safety
+                      final String title = item['title'] ?? 'Unknown';
+                      final String price = item['price'] ?? 'N/A';
+                      final String imagePath =
+                          item['imagePath'] ?? 'assets/default_image.png';
+                      final int quantity = item['quantity'] ?? 1;
+
+                      return Dismissible(
+                        key: UniqueKey(),
+                        direction: DismissDirection.endToStart,
+                        onDismissed: (direction) {
+                          setState(() {
+                            cartItems.removeAt(index);
+                          });
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Item removed from cart')),
+                          );
+                        },
+                        background: Container(
+                          color: Colors.red,
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: const Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                          ),
+                        ),
+                        child: cartItem(
+                          title: title,
+                          price: price,
+                          imagePath: imagePath,
+                          quantity: quantity,
+                          onQuantityChanged: (newQuantity) {
+                            setState(() {
+                              cartItems[index]['quantity'] = newQuantity;
+                            });
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ],
+          const Divider(thickness: 1),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Bottompromo(), // Promo code and checkout button
             ),
           ),
         ],
@@ -115,19 +98,25 @@ class Cart extends StatelessWidget {
   }
 
   // Cart Item Widget
-  Widget cartItem(String title, String price, String imagePath, int quantity) {
+  Widget cartItem({
+    required String title,
+    required String price,
+    required String imagePath,
+    required int quantity,
+    required Function(int) onQuantityChanged,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
       child: Row(
         children: [
           // Image
           Container(
-            height: 60,
-            width: 60,
+            height: 50,
+            width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
-                image: AssetImage(imagePath), // replace with your image path
+                image: AssetImage(imagePath), // Default image if missing
                 fit: BoxFit.cover,
               ),
             ),
@@ -148,12 +137,18 @@ class Cart extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                onPressed: () {}, // Decrease Quantity
+                onPressed: () {
+                  if (quantity > 1) {
+                    onQuantityChanged(quantity - 1);
+                  }
+                }, // Decrease Quantity
                 icon: const Icon(Icons.remove_circle_outline),
               ),
               Text('$quantity'),
               IconButton(
-                onPressed: () {}, // Increase Quantity
+                onPressed: () {
+                  onQuantityChanged(quantity + 1);
+                }, // Increase Quantity
                 icon: const Icon(Icons.add_circle_outline),
               ),
             ],

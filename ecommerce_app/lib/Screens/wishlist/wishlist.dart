@@ -10,10 +10,10 @@ class Wishlist extends StatefulWidget {
 
 class _WishlistState extends State<Wishlist> {
   // Function to remove an item from the wishlist and refresh UI
-  void _removeFromWishlist(int index) {
+  void _removeFromWishlist(int indexx) {
     setState(() {
-      if (index >= 0 && index < Gridviewwidget.wishlistItems.length) {
-        Gridviewwidget.wishlistItems.remove(index);
+      if (indexx >= 0 && indexx < Gridviewwidget.wishlistItems.length) {
+        Gridviewwidget.wishlistItems.remove(indexx);
       }
     });
   }
@@ -41,7 +41,7 @@ class _WishlistState extends State<Wishlist> {
                 int itemIndex = Gridviewwidget.wishlistItems[index];
                 return Gridviewwidget(
                   i: itemIndex,
-                  onRemove: () => _removeFromWishlist(itemIndex),
+                  onRemove: () => _removeFromWishlist(index),
                 );
               },
             ),

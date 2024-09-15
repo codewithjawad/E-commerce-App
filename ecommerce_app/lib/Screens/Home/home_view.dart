@@ -36,9 +36,20 @@ class _HomeViewState extends State<HomeView> {
     switch (_currentIndex) {
       case 0:
         return AppBar(
-            title: const Center(
-          child: Text("Wishlist"),
-        ));
+          backgroundColor: Colors.white,
+          title: const Center(
+            child: Text("WishList",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold)),
+          ),
+          centerTitle: true,
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+        );
       case 1:
         return AppBar(
           title: const Text('My Cart',
@@ -53,17 +64,35 @@ class _HomeViewState extends State<HomeView> {
         );
       case 3:
         return AppBar(
-          title: const Text("Chat"),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.white,
+          title: const Center(
+            child: Text("Chat",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold)),
+          ),
+          centerTitle: true,
+          elevation: 0,
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
         );
       case 4:
         return AppBar(
-          title:
-              const Text('My Profile', style: TextStyle(color: Colors.black)),
+          backgroundColor: Colors.white,
+          title: const Center(
+            child: Text("Profile",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold)),
+          ),
           centerTitle: true,
-          backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: const IconThemeData(color: Colors.black),
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
         );
       default:
         return const Appbarview(); // Default for "Product" tab

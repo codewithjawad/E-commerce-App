@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/Screens/Login/login_view.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -38,47 +39,58 @@ class Profile extends StatelessWidget {
             // Profile Options
             Expanded(
               child: ListView(
-                children: const [
-                  ListTile(
+                children: [
+                  const ListTile(
                     leading: Icon(Icons.person),
                     title: Text('Your Profile'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  Divider(),
-                  ListTile(
+                  const Divider(),
+                  const ListTile(
                     leading: Icon(Icons.payment),
                     title: Text('Payment Methods'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  Divider(),
-                  ListTile(
+                  const Divider(),
+                  const ListTile(
                     leading: Icon(Icons.shopping_bag),
                     title: Text('My Orders'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  Divider(),
-                  ListTile(
+                  const Divider(),
+                  const ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('Settings'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  Divider(),
-                  ListTile(
+                  const Divider(),
+                  const ListTile(
                     leading: Icon(Icons.help),
                     title: Text('Help Center'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  Divider(),
-                  ListTile(
+                  const Divider(),
+                  const ListTile(
                     leading: Icon(Icons.lock),
                     title: Text('Privacy Policy'),
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                  Divider(),
-                  ListTile(
+                  const Divider(),
+                  const ListTile(
                     leading: Icon(Icons.person_add),
                     title: Text('Invite Friends'),
                     trailing: Icon(Icons.arrow_forward_ios),
+                  ),
+                  const Divider(),
+                  ListTile(
+                    leading: const Icon(Icons.logout),
+                    title: const Text('Logout'),
+                    trailing: const Icon(Icons.arrow_forward_ios),
+                    onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginView()),
+                    ),
                   ),
                 ],
               ),

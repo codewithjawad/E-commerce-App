@@ -8,6 +8,7 @@ class Appbarview extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.white,
       title: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text("Hi Jawwad!", style: TextStyle(color: Colors.black)),
           const Spacer(),

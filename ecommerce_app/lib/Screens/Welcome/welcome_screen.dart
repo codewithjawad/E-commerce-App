@@ -9,14 +9,18 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.only(top: 40, left: 15),
-          height: MediaQuery.of(context).size.height * 100,
-          width: MediaQuery.of(context).size.width * 100,
-          child: const Column(
-            children: [Imgwidget(), Bottomwidget()],
-          ),
+          child: Container(
+        padding: const EdgeInsets.only(top: 0, left: 15),
+        height: MediaQuery.of(context).size.height * 100,
+        width: MediaQuery.of(context).size.width * 100,
+        child: const Column(
+          children: [
+            Imgwidget(),
+            SizedBox(
+              height: 20,
+            ),
+            Bottomwidget()
+          ],
         ),
       )),
     );

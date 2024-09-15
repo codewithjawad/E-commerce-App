@@ -11,7 +11,7 @@ class _ChatState extends State<Chat> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("chat view"),
+      body: Center(child: Text("chat view\n Coming Soon")),
     );
   }
 }
