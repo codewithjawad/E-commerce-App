@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Order extends StatelessWidget {
   final items;
-  const Order({super.key,required this.items});
+  const Order({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,10 @@ class Order extends StatelessWidget {
           ),
           title: Text(title),
           subtitle: Text('PKR $price'),
-          trailing: Text('Qty: $quantity'),
+          trailing: Text(
+            'Qty: $quantity',
+            style: const TextStyle(fontSize: 16),
+          ),
         );
       },
     );

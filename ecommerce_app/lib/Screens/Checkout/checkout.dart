@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/Custom%20Widgets/custombtn.dart';
 import 'package:ecommerce_app/Screens/Checkout/order.dart';
-import 'package:ecommerce_app/Screens/Home/home_view.dart';
+import 'package:ecommerce_app/Screens/payment/payment.dart';
 import 'package:flutter/material.dart';
 
 class CheckoutScreen extends StatelessWidget {
@@ -73,7 +73,7 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(height: 16.0),
             const Custombtn(
               btntext: "Continue to Payment",
-              navgt: HomeView(),
+              navgt: PaymentMethodsScreen(),
             ),
           ],
         ),
