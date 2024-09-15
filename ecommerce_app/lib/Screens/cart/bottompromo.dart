@@ -50,7 +50,6 @@ class _BottompromoState extends State<Bottompromo> {
             ),
           ),
           const SizedBox(height: 10),
-          // Price Summary
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -83,7 +82,6 @@ class _BottompromoState extends State<Bottompromo> {
             ],
           ),
           const SizedBox(height: 20),
-          // Checkout Button
           Center(
             child: ElevatedButton(
               onPressed: () {

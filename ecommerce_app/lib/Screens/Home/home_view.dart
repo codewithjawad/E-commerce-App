@@ -95,16 +95,14 @@ class _HomeViewState extends State<HomeView> {
           ),
         );
       default:
-        return const Appbarview(); // Default for "Product" tab
+        return const Appbarview();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _currentIndex == 2
-          ? const Appbarview() // Show Appbarview only for "Product" tab
-          : _buildCustomAppBar(), // Show custom app bar for other tabs
+      appBar: _currentIndex == 2 ? const Appbarview() : _buildCustomAppBar(),
       body: _pages[_currentIndex],
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.custom,
@@ -118,8 +116,8 @@ class _HomeViewState extends State<HomeView> {
           TabItem(icon: Icons.chat),
           TabItem(icon: Icons.person),
         ],
-        initialActiveIndex: _currentIndex, // Set initial active index
-        onTap: _onTabTapped, // Call this method when a tab is tapped
+        initialActiveIndex: _currentIndex,
+        onTap: _onTabTapped,
       ),
     );
   }

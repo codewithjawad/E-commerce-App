@@ -44,7 +44,7 @@ class _LoginformState extends State<Loginform> {
             TextFormField(
               controller: _passwordController,
               keyboardType: TextInputType.visiblePassword,
-              obscureText: true, // to hide the password input
+              obscureText: true,
               decoration: const InputDecoration(
                 labelText: 'Password',
                 hintText: 'Enter Password',

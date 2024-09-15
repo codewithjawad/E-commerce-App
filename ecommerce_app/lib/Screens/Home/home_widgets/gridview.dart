@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class Gridviewwidget extends StatefulWidget {
   final int i;
-  final VoidCallback? onRemove; // Callback for removing from wishlist
+  final VoidCallback? onRemove;
 
-  static List<int> wishlistItems = []; // Track wishlist items
+  static List<int> wishlistItems = []; 
 
   const Gridviewwidget({super.key, required this.i, this.onRemove});
 
@@ -55,7 +55,7 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
               child: Image.asset(
                 height: 170,
                 width: double.infinity,
-                productmap.elementAt(widget.i)['images'], // Use widget.i
+                productmap.elementAt(widget.i)['images'], 
                 fit: BoxFit.cover,
               ),
             ),
@@ -90,7 +90,6 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // Heart Icon to add/remove from wishlist
                     IconButton(
                       onPressed: () {
                         setState(() {

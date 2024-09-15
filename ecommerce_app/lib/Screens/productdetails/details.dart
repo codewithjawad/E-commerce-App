@@ -19,7 +19,6 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  // Size and color selections
   String selectedSize = 'M';
   Color selectedColor = Colors.black;
 
@@ -83,9 +82,9 @@ class _DetailsState extends State<Details> {
                 ),
               ),
               const SizedBox(height: 8),
-              Text(
+              const Text(
                 'Morbi iaculis velit quis quam vehicula, sit amet vehicula velit tempus. Integer metus sem, scelerisque cursus cursus vel, malesuada sit amet ante. Pellentesque gravida purus orci.',
-                style: const TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 16),
               Text(
@@ -195,7 +194,6 @@ class _DetailsState extends State<Details> {
                       ),
                     ),
                     onPressed: () {
-                      // Add item to cart
                       setState(() {
                         cartItems.add({
                           'title': widget.imgtitle,

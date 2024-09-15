@@ -9,7 +9,6 @@ class Wishlist extends StatefulWidget {
 }
 
 class _WishlistState extends State<Wishlist> {
-  // Function to remove an item from the wishlist and refresh UI
   void _removeFromWishlist(int indexx) {
     setState(() {
       if (indexx >= 0 && indexx < Gridviewwidget.wishlistItems.length) {

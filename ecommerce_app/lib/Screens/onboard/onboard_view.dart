@@ -26,7 +26,7 @@ class _OnboardViewState extends State<OnboardView> {
         children: [
           Expanded(
             child: PageView.builder(
-              controller: _controller, // Ensure controller is assigned
+              controller: _controller,
               itemCount: contents.length,
               onPageChanged: (int index) =>
                   setState(() => currentIndex = index),
@@ -87,7 +87,6 @@ class _OnboardViewState extends State<OnboardView> {
               ),
               onPressed: () {
                 if (currentIndex == contents.length - 1) {
-                  // Navigate to Homescreen (replace with your actual screen)
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(

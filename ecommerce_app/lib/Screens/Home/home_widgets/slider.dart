@@ -64,7 +64,6 @@ class _SliderviewState extends State<Sliderview> {
     return Scaffold(
       body: Column(
         children: [
-          // Wrap the CarouselSlider with SizedBox to control height
           SizedBox(
             height: 140,
             width: MediaQuery.of(context).size.width,
@@ -74,7 +73,6 @@ class _SliderviewState extends State<Sliderview> {
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
-                // You can also play with aspectRatio for better control
                 onPageChanged: (index, reason) {
                   setState(() {
                     _current = index;

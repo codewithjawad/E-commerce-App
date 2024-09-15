@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../cartlist.dart';
 
 class OrderDetail extends StatelessWidget {

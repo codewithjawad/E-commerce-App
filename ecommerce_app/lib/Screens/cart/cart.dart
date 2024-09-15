@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/Screens/cart/bottompromo.dart';
-import 'package:ecommerce_app/cartlist.dart'; // Assuming this file contains cartItems list
+import 'package:ecommerce_app/cartlist.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -40,8 +40,6 @@ class _CartState extends State<Cart> {
                     itemCount: cartItems.length,
                     itemBuilder: (context, index) {
                       final item = cartItems[index];
-
-                      // Null checks for safety
                       final String title = item['title'] ?? 'Unknown';
                       final String price = item['price'] ?? 'N/A';
                       final String imagePath =
@@ -57,7 +55,7 @@ class _CartState extends State<Cart> {
                           });
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              duration: Duration(seconds: 2),
+                                duration: Duration(seconds: 2),
                                 content: Text('Item removed from cart')),
                           );
                         },
@@ -90,7 +88,7 @@ class _CartState extends State<Cart> {
             padding: EdgeInsets.all(16.0),
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: Bottompromo(), // Promo code and checkout button
+              child: Bottompromo(),
             ),
           ),
         ],
@@ -98,7 +96,6 @@ class _CartState extends State<Cart> {
     );
   }
 
-  // Cart Item Widget
   Widget cartItem({
     required String title,
     required String price,
@@ -117,13 +114,12 @@ class _CartState extends State<Cart> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
-                image: AssetImage(imagePath), // Default image if missing
+                image: AssetImage(imagePath),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(width: 10),
-          // Title and Price
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,7 +130,6 @@ class _CartState extends State<Cart> {
               ],
             ),
           ),
-          // Quantity Adjustment Buttons
           Row(
             children: [
               IconButton(
@@ -142,14 +137,14 @@ class _CartState extends State<Cart> {
                   if (quantity > 1) {
                     onQuantityChanged(quantity - 1);
                   }
-                }, // Decrease Quantity
+                },
                 icon: const Icon(Icons.remove_circle_outline),
               ),
               Text('$quantity'),
               IconButton(
                 onPressed: () {
                   onQuantityChanged(quantity + 1);
-                }, // Increase Quantity
+                },
                 icon: const Icon(Icons.add_circle_outline),
               ),
             ],

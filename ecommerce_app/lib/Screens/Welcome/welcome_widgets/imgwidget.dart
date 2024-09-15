@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Imgwidget extends StatelessWidget {
-  const Imgwidget({super.key});
+  final String fullPic;
+  final String clothDesign;
+  final String girlShopping;
+
+  const Imgwidget({
+    super.key,
+    required this.fullPic,
+    required this.clothDesign,
+    required this.girlShopping,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,31 +22,27 @@ class Imgwidget extends StatelessWidget {
             height: 300,
             width: MediaQuery.of(context).size.width * 0.40,
             decoration: BoxDecoration(
-              borderRadius:
-                  BorderRadius.circular(100), // Set the desired border radius
+              borderRadius: BorderRadius.circular(100),
             ),
-            clipBehavior: Clip
-                .antiAlias, // Ensure the child is clipped to the rounded shape
-            child: Image.asset('assests/fullpic.jpg', fit: BoxFit.cover),
+            clipBehavior: Clip.antiAlias,
+            child: Image.asset(fullPic, fit: BoxFit.cover),
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.50,
-                child: const CircleAvatar(
-                  backgroundImage: AssetImage('assests/clothdesign.jpg'),
-                  radius: 70, // You can adjust the radius as needed
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(clothDesign),
+                  radius: 70,
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
-                child: const CircleAvatar(
-                  backgroundImage: AssetImage('assests/girlshhopping.jpg'),
-                  radius: 70, // You can adjust the radius as needed
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(girlShopping),
+                  radius: 70,
                 ),
               ),
             ],

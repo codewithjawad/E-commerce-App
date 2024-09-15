@@ -11,11 +11,10 @@ class Profile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Column(
           children: [
-            // Profile Picture and Name
             const CircleAvatar(
               radius: 50,
               backgroundImage:
-                  AssetImage('assests/img2.jpg'), // Replace with your image
+                  AssetImage('assests/img2.jpg'),
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: CircleAvatar(
@@ -35,8 +34,6 @@ class Profile extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-
-            // Profile Options
             Expanded(
               child: ListView(
                 children: [

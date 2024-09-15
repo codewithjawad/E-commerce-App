@@ -71,7 +71,11 @@ class _HomescreenState extends State<LoginView> {
               SizedBox(
                 height: 10,
               ),
-              Customlink(quest: "Don't have an account?", link: "Sign Up",navigate_To: WelcomeScreen(),)
+              Customlink(
+                quest: "Don't have an account?",
+                link: "Sign Up",
+                navigate_To: LoginView(),
+              )
             ],
           ),
         ),

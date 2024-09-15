@@ -8,7 +8,7 @@ class Subcategory extends StatefulWidget {
 }
 
 class _SubcategoryState extends State<Subcategory> {
-  int selectedButtonIndex = 0; // Initially, no button is selected
+  int selectedButtonIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,6 @@ class _SubcategoryState extends State<Subcategory> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // All button
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -41,7 +40,6 @@ class _SubcategoryState extends State<Subcategory> {
             const SizedBox(
               width: 5,
             ),
-            // Newest button
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -50,7 +48,7 @@ class _SubcategoryState extends State<Subcategory> {
               ),
               onPressed: () {
                 setState(() {
-                  selectedButtonIndex = 1; // "Newest" button selected
+                  selectedButtonIndex = 1;
                 });
               },
               child: Text(
@@ -63,7 +61,6 @@ class _SubcategoryState extends State<Subcategory> {
             const SizedBox(
               width: 5,
             ),
-            // Popular button
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -72,7 +69,7 @@ class _SubcategoryState extends State<Subcategory> {
               ),
               onPressed: () {
                 setState(() {
-                  selectedButtonIndex = 2; // "Popular" button selected
+                  selectedButtonIndex = 2;
                 });
               },
               child: Text(
@@ -85,7 +82,6 @@ class _SubcategoryState extends State<Subcategory> {
             const SizedBox(
               width: 5,
             ),
-            // Men button
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -94,7 +90,7 @@ class _SubcategoryState extends State<Subcategory> {
               ),
               onPressed: () {
                 setState(() {
-                  selectedButtonIndex = 3; // "Men" button selected
+                  selectedButtonIndex = 3;
                 });
               },
               child: Text(
@@ -107,7 +103,6 @@ class _SubcategoryState extends State<Subcategory> {
             const SizedBox(
               width: 5,
             ),
-            // Women button
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -116,7 +111,7 @@ class _SubcategoryState extends State<Subcategory> {
               ),
               onPressed: () {
                 setState(() {
-                  selectedButtonIndex = 4; // "Women" button selected
+                  selectedButtonIndex = 4;
                 });
               },
               child: Text(
@@ -129,7 +124,6 @@ class _SubcategoryState extends State<Subcategory> {
             const SizedBox(
               width: 5,
             ),
-            // Winter button
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
@@ -138,7 +132,7 @@ class _SubcategoryState extends State<Subcategory> {
               ),
               onPressed: () {
                 setState(() {
-                  selectedButtonIndex = 5; // "Winter" button selected
+                  selectedButtonIndex = 5;
                 });
               },
               child: Text(
