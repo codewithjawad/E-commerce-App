@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/Screens/Checkout/checkout.dart';
+import 'package:ecommerce_app/cartlist.dart';
 import 'package:flutter/material.dart';
 
 class Bottompromo extends StatefulWidget {
@@ -84,7 +86,14 @@ class _BottompromoState extends State<Bottompromo> {
           // Checkout Button
           Center(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CheckoutScreen(orderItems: cartItems),
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.brown,
                 padding:

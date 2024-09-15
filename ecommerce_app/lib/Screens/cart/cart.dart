@@ -57,6 +57,7 @@ class _CartState extends State<Cart> {
                           });
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
+                              duration: Duration(seconds: 2),
                                 content: Text('Item removed from cart')),
                           );
                         },

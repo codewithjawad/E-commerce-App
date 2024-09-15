@@ -6,12 +6,13 @@ class Details extends StatefulWidget {
   final String imgtitle;
   final String rating;
   final String price;
-  const Details(
-      {super.key,
-      required this.imgpath,
-      required this.imgtitle,
-      required this.price,
-      required this.rating});
+  const Details({
+    super.key,
+    required this.imgpath,
+    required this.imgtitle,
+    required this.price,
+    required this.rating,
+  });
 
   @override
   State<Details> createState() => _DetailsState();
@@ -28,7 +29,7 @@ class _DetailsState extends State<Details> {
       appBar: AppBar(
         title: const Text(
           'Product Details',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -37,28 +38,31 @@ class _DetailsState extends State<Details> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(widget.imgpath),
                     fit: BoxFit.cover,
                   ),
+                  borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
+              Text(
+                widget.imgtitle,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
               Row(
                 children: [
-                  Text(
-                    widget.imgtitle,
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
-                  const Spacer(),
                   Icon(
                     Icons.star,
                     color: Colors.yellow[600],
@@ -66,29 +70,33 @@ class _DetailsState extends State<Details> {
                   Text(
                     widget.rating,
                     style: const TextStyle(fontSize: 16),
-                  )
+                  ),
                 ],
               ),
-              const SizedBox(height: 10),
-              const Text(
-                'Shirts',
+              const SizedBox(height: 16),
+              Text(
+                'Product Description',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.brown,
+                  color: Colors.brown[700],
                 ),
               ),
-              const SizedBox(height: 10),
-              const Text(
+              const SizedBox(height: 8),
+              Text(
                 'Morbi iaculis velit quis quam vehicula, sit amet vehicula velit tempus. Integer metus sem, scelerisque cursus cursus vel, malesuada sit amet ante. Pellentesque gravida purus orci.',
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
-              const SizedBox(height: 20),
-              const Text(
+              const SizedBox(height: 16),
+              Text(
                 'Select Size',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown[700],
+                ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Row(
                 children: ['S', 'M', 'L', 'XL'].map((size) {
                   return GestureDetector(
@@ -100,13 +108,16 @@ class _DetailsState extends State<Details> {
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 8),
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 16),
+                          vertical: 12, horizontal: 20),
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: selectedSize == size
                                 ? Colors.brown
-                                : Colors.grey),
-                        borderRadius: BorderRadius.circular(8),
+                                : Colors.grey[400]!),
+                        borderRadius: BorderRadius.circular(12),
+                        color: selectedSize == size
+                            ? Colors.brown[100]
+                            : Colors.white,
                       ),
                       child: Text(
                         size,
@@ -121,12 +132,16 @@ class _DetailsState extends State<Details> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 20),
-              const Text(
+              const SizedBox(height: 16),
+              Text(
                 'Select Color',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.brown[700],
+                ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Row(
                 children: [
                   Colors.black,
@@ -149,7 +164,7 @@ class _DetailsState extends State<Details> {
                           color: selectedColor == color
                               ? Colors.black
                               : Colors.transparent,
-                          width: 2,
+                          width: 3,
                         ),
                       ),
                       width: 40,
@@ -158,24 +173,25 @@ class _DetailsState extends State<Details> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Price: ${widget.price}",
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
+                      color: Colors.brown,
                     ),
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.brown,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16),
+                          horizontal: 50, vertical: 12),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
                     onPressed: () {
@@ -188,7 +204,10 @@ class _DetailsState extends State<Details> {
                         });
                       });
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Added to Cart')),
+                        const SnackBar(
+                          duration: Duration(seconds: 2),
+                          content: Text('Added to Cart'),
+                        ),
                       );
                     },
                     child: const Text(
