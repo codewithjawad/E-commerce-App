@@ -2,14 +2,15 @@ import 'package:ecommerce_app/Screens/Checkout/checkout.dart';
 import 'package:ecommerce_app/cartlist.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Bottompromo extends StatefulWidget {
   const Bottompromo({super.key});
-
   @override
   State<Bottompromo> createState() => _BottompromoState();
 }
 
 class _BottompromoState extends State<Bottompromo> {
+  final item = cartItems;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,9 +19,8 @@ class _BottompromoState extends State<Bottompromo> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * 0.100,
-            color: Colors.amber,
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -35,7 +35,7 @@ class _BottompromoState extends State<Bottompromo> {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 ElevatedButton(
                   onPressed: () {},
@@ -58,7 +58,7 @@ class _BottompromoState extends State<Bottompromo> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Sub-Total'),
-              Text('\$ 0'),
+              Text("\$ 0"),
             ],
           ),
           const SizedBox(height: 5),

@@ -95,7 +95,7 @@ class _CartState extends State<Cart> {
     );
   }
 
-  Widget cartItem({
+  static Widget cartItem({
     required String title,
     required String price,
     required String imagePath,
