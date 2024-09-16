@@ -83,7 +83,6 @@ class _CartState extends State<Cart> {
                     },
                   ),
                 ),
-          const Divider(thickness: 1),
           const Padding(
             padding: EdgeInsets.all(16.0),
             child: Align(

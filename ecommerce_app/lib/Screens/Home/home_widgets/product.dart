@@ -19,34 +19,34 @@ class _ProductState extends State<Product> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(left: 10),
-                  height: 40,
-                  width: 250,
-                  child: TextFormField(
-                    controller: searchController,
-                    decoration: const InputDecoration(
-                      labelText: 'Search',
-                      hintText: 'Search',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: searchController,
+                      decoration: const InputDecoration(
+                        labelText: 'Search',
+                        hintText: 'Search',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        ),
+                      ),
+                      style: const TextStyle(
+                        fontSize: 14,
                       ),
                     ),
-                    style: const TextStyle(
-                      fontSize: 14,
+                  ),
+                  const SizedBox(width: 10),
+                  ClipOval(
+                    child: IconButton(
+                      icon: const Icon(Icons.filter_list),
+                      onPressed: () {},
                     ),
                   ),
-                ),
-                const Spacer(),
-                ClipOval(
-                  child: IconButton(
-                    icon: const Icon(Icons.filter_list),
-                    onPressed: () {},
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(
               height: 180,
@@ -60,10 +60,11 @@ class _ProductState extends State<Product> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: productmap.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: 300,
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10),
+                mainAxisExtent: 300,
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
               itemBuilder: (BuildContext context, int index) {
                 return Gridviewwidget(
                   i: index,

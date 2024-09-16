@@ -19,19 +19,22 @@ class _BottompromoState extends State<Bottompromo> {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(10),
-            ),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      border: InputBorder.none,
+                      //labelText: 'P',
                       hintText: 'Promo Code',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                      ),
                     ),
                   ),
+                ),
+                const SizedBox(
+                  width: 20,
                 ),
                 ElevatedButton(
                   onPressed: () {},
