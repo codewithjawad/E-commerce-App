@@ -18,14 +18,15 @@ class _BottompromoState extends State<Bottompromo> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+            width: MediaQuery.of(context).size.width * 0.100,
+            color: Colors.amber,
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      //labelText: 'P',
                       hintText: 'Promo Code',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(40.0)),

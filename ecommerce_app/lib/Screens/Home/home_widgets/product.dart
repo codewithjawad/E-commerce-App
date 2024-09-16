@@ -27,18 +27,18 @@ class _ProductState extends State<Product> {
                     child: TextFormField(
                       controller: searchController,
                       decoration: const InputDecoration(
-                        labelText: 'Search',
                         hintText: 'Search',
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40.0)),
+                            borderSide: BorderSide(color: Colors.black)),
                       ),
                       style: const TextStyle(
                         fontSize: 14,
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 20),
                   ClipOval(
                     child: IconButton(
                       icon: const Icon(Icons.filter_list),
