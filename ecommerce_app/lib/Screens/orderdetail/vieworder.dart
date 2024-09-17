@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/Screens/Home/home_view.dart';
 import 'package:ecommerce_app/Screens/orderdetail/orderdetail.dart';
+import 'package:ecommerce_app/cartlist.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSuccessfulScreen extends StatelessWidget {
@@ -40,7 +41,8 @@ class PaymentSuccessfulScreen extends StatelessWidget {
             const SizedBox(height: 100.0),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
+                print(cartItems);
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const OrderDetail()),
                 );

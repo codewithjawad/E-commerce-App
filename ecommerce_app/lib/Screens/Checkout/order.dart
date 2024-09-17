@@ -24,7 +24,7 @@ class Order extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           title: Text(title),
-          subtitle: Text('PKR $price'),
+          subtitle: Text(price),
           trailing: Text(
             'Qty: $quantity',
             style: const TextStyle(fontSize: 16),

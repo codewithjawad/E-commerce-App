@@ -1,10 +1,21 @@
 import 'package:ecommerce_app/Screens/orderdetail/vieworder.dart';
 import 'package:flutter/material.dart';
 
-class PaymentMethodsScreen extends StatelessWidget {
-  final String selectedPaymentMethod;
+class PaymentMethodsScreen extends StatefulWidget {
+  const PaymentMethodsScreen({super.key});
 
-  const PaymentMethodsScreen({super.key, this.selectedPaymentMethod = ''});
+  @override
+  _PaymentMethodsScreenState createState() => _PaymentMethodsScreenState();
+}
+
+class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
+  late String selectedPaymentMethod;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedPaymentMethod = "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +31,10 @@ class PaymentMethodsScreen extends StatelessWidget {
           children: [
             _buildPaymentMethodTile(
               icon: const Icon(Icons.payment),
-              title: 'card',
-              value: 'Add new Card',
+              title: 'Card',
+              value: 'card',
               selectedPaymentMethod: selectedPaymentMethod,
-              onChanged: (value) {},
+              onChanged: _onPaymentMethodChanged,
             ),
             const SizedBox(height: 16.0),
             const Text(
@@ -36,52 +47,59 @@ class PaymentMethodsScreen extends StatelessWidget {
               title: 'PayPal',
               value: 'paypal',
               selectedPaymentMethod: selectedPaymentMethod,
-              onChanged: (value) {},
+              onChanged: _onPaymentMethodChanged,
             ),
             _buildPaymentMethodTile(
               icon: const Icon(Icons.apple),
               title: 'Apple Pay',
               value: 'apple_pay',
               selectedPaymentMethod: selectedPaymentMethod,
-              onChanged: (value) {},
+              onChanged: _onPaymentMethodChanged,
             ),
             _buildPaymentMethodTile(
               icon: const Icon(Icons.android),
               title: 'Google Pay',
               value: 'google_pay',
               selectedPaymentMethod: selectedPaymentMethod,
-              onChanged: (value) {},
+              onChanged: _onPaymentMethodChanged,
             ),
             const Spacer(),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil<void>(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (BuildContext context) =>
-                          const PaymentSuccessfulScreen(),
-                    ),
-                    ModalRoute.withName('/'),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown,
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 60, vertical: 14.0),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Confirm Payment',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
+              onPressed: () {
+                Navigator.pushAndRemoveUntil<void>(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        const PaymentSuccessfulScreen(),
                   ),
-                )),
+                  ModalRoute.withName('/'),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.brown,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 60, vertical: 14.0),
+              ),
+              child: const Center(
+                child: Text(
+                  'Confirm Payment',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  void _onPaymentMethodChanged(String? value) {
+    setState(() {
+      selectedPaymentMethod = value!;
+    });
   }
 
   Widget _buildPaymentMethodTile({
@@ -99,6 +117,9 @@ class PaymentMethodsScreen extends StatelessWidget {
         groupValue: selectedPaymentMethod,
         onChanged: onChanged,
       ),
+      onTap: () {
+        onChanged(value);
+      },
     );
   }
 }
