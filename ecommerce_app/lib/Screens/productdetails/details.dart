@@ -143,7 +143,7 @@ class _DetailsState extends State<Details> {
               const SizedBox(height: 8),
               Row(
                 children: [
-                  Colors.black,
+                  Colors.yellow,
                   Colors.brown,
                   Colors.blue,
                 ].map((color) {

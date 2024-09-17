@@ -5,7 +5,7 @@ class PaymentMethodsScreen extends StatefulWidget {
   const PaymentMethodsScreen({super.key});
 
   @override
-  _PaymentMethodsScreenState createState() => _PaymentMethodsScreenState();
+  State<PaymentMethodsScreen> createState() => _PaymentMethodsScreenState();
 }
 
 class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
@@ -78,7 +78,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.brown,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 60, vertical: 14.0),
+                    const EdgeInsets.symmetric(horizontal: 60, vertical: 16.0),
               ),
               child: const Center(
                 child: Text(

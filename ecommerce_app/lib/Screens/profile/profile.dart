@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/Screens/Login/login_view.dart';
+import 'package:ecommerce_app/Screens/orderdetail/orderdetail.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -49,10 +50,14 @@ class Profile extends StatelessWidget {
                     trailing: Icon(Icons.arrow_forward_ios),
                   ),
                   const Divider(),
-                  const ListTile(
-                    leading: Icon(Icons.shopping_bag),
-                    title: Text('My Orders'),
-                    trailing: Icon(Icons.arrow_forward_ios),
+                   ListTile(
+                    leading: const Icon(Icons.shopping_bag),
+                    title: const Text('My Orders'),
+                    trailing: const Icon(Icons.arrow_forward_ios),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: 
+                      (context) => const OrderDetail(),));
+                    },
                   ),
                   const Divider(),
                   const ListTile(

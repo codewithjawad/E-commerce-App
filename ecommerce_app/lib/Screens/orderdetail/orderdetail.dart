@@ -17,6 +17,7 @@ class _OrderDetailState extends State<OrderDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text(
           'Order Details',
           style: TextStyle(
@@ -37,7 +38,7 @@ class _OrderDetailState extends State<OrderDetail> {
                 fit: BoxFit.cover,
               ),
               title: Text(a.orderItems[index]['title'] ?? ''),
-              subtitle: Text('\$ ${a.orderItems[index]['price'] ?? '0'}'),
+              subtitle: Text('${a.orderItems[index]['price'] ?? '0'}'),
               trailing: Text(
                 'Qty: ${a.orderItems[index]['quantity'] ?? '1'}',
                 style: const TextStyle(fontSize: 16),

@@ -45,7 +45,6 @@ class _CartState extends State<Cart> {
                       final String imagePath =
                           item['imagePath'] ?? 'assets/default_image.png';
                       final int quantity = item['quantity'] ?? 1;
-
                       return Dismissible(
                         key: UniqueKey(),
                         direction: DismissDirection.endToStart,

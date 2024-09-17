@@ -20,7 +20,10 @@ class Category extends StatelessWidget {
               ),
               Spacer(),
               Text("See All",
-                  style: TextStyle(fontSize: 16, color: Colors.brown))
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.brown,
+                      decoration: TextDecoration.underline))
             ],
           ),
           Container(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Order extends StatelessWidget {
-  final items;
+  final dynamic items;
   const Order({super.key, required this.items});
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
