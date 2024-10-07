@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Imgwidget extends StatelessWidget {
-  const Imgwidget({super.key});
+  String img1;
+  String img2;
+  String img3;
+  Imgwidget(
+      {super.key, required this.img1, required this.img2, required this.img3});
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +21,15 @@ class Imgwidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
             ),
             clipBehavior: Clip.antiAlias,
-            child: Image.asset('assests/fullpic.jpg', fit: BoxFit.cover),
+            child: Image.asset(img1, fit: BoxFit.cover),
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.50,
-                child: const CircleAvatar(
-                  backgroundImage: AssetImage('assests/clothdesign.jpg'),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(img2),
                   radius: 70,
                 ),
               ),
@@ -33,8 +38,8 @@ class Imgwidget extends StatelessWidget {
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
-                child: const CircleAvatar(
-                  backgroundImage: AssetImage('assests/girlshhopping.jpg'),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(img3),
                   radius: 70,
                 ),
               ),
