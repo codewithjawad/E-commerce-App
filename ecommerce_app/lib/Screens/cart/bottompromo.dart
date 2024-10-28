@@ -2,17 +2,34 @@ import 'package:ecommerce_app/Screens/Checkout/checkout.dart';
 import 'package:ecommerce_app/cartlist.dart';
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class Bottompromo extends StatefulWidget {
   const Bottompromo({super.key});
+  
   @override
   State<Bottompromo> createState() => _BottompromoState();
 }
 
 class _BottompromoState extends State<Bottompromo> {
-  final item = cartItems;
+  double calculateSubtotal() {
+  double subtotal = 0;
+  for (var item in cartItems) {
+    String priceString = item['price'] ?? '0';
+    // Remove any non-numeric characters before parsing
+    double price = double.parse(priceString.replaceAll(RegExp(r'[^0-9.]'), ''));
+    int quantity = item['quantity'] ?? 1;
+    subtotal += price * quantity;
+  }
+  return subtotal;
+}
+
+
   @override
   Widget build(BuildContext context) {
+    double subtotal = calculateSubtotal();
+    double deliveryFee = 5.0; // Example fixed delivery fee
+    double discount = 0.0; // Assuming no discount
+    double totalCost = subtotal + deliveryFee - discount;
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -34,9 +51,7 @@ class _BottompromoState extends State<Bottompromo> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -45,44 +60,41 @@ class _BottompromoState extends State<Bottompromo> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: const Text(
-                    'Apply',
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  child: const Text('Apply', style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),
           ),
           const SizedBox(height: 10),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Sub-Total'),
-              Text("\$ 0"),
+              const Text('Sub-Total'),
+              Text("\$ ${subtotal.toStringAsFixed(2)}"),
             ],
           ),
           const SizedBox(height: 5),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Delivery Fee'),
-              Text('\$ 0'),
+              const Text('Delivery Fee'),
+              Text('\$ ${deliveryFee.toStringAsFixed(2)}'),
             ],
           ),
           const SizedBox(height: 5),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Discount'),
-              Text('\$ 0'),
+              const Text('Discount'),
+              Text('\$ ${discount.toStringAsFixed(2)}'),
             ],
           ),
           const SizedBox(height: 5),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Total Cost', style: TextStyle(fontWeight: FontWeight.bold)),
-              Text('\$ 0', style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text('Total Cost', style: TextStyle(fontWeight: FontWeight.bold)),
+              Text('\$ ${totalCost.toStringAsFixed(2)}', style: const TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
           const SizedBox(height: 20),
@@ -93,8 +105,7 @@ class _BottompromoState extends State<Bottompromo> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          CheckoutScreen(orderItems: cartItems),
+                      builder: (context) => CheckoutScreen(orderItems: cartItems),
                     ),
                   );
                 } else {
@@ -108,8 +119,7 @@ class _BottompromoState extends State<Bottompromo> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.brown,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -125,55 +135,3 @@ class _BottompromoState extends State<Bottompromo> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ListTile(
-//                     leading: Container(
-//                       color: Colors.amber,
-//                       child: Image.asset("product image that user added to cart"),
-//                     ),
-//                     title: const Text(
-//                       "product image title",
-//                       style: TextStyle(fontSize: 20),
-//                     ),
-//                     subtitle: const Text(
-//                       "product image price",
-//                       style: TextStyle(fontSize: 20),
-//                     ),
-//                     trailing: Row(
-//                       mainAxisSize: MainAxisSize.min,
-//                       children: [
-//                         IconButton(
-//                             onPressed: () {
-//                               setState(() {
-//                                 count--;
-//                               });
-//                             },
-//                             icon: const Icon(CupertinoIcons.minus)),
-//                         Text(
-//                           '$count',
-//                           style: const TextStyle(fontSize: 20),
-//                         ),
-//                         IconButton(
-//                             onPressed: () {
-//                               setState(() {
-//                                 count++;
-//                               });
-//                             },
-//                             icon: const Icon(Icons.add)),
-//                       ],
-//                     ),
-//                     onTap: () {},
-//                   ),
