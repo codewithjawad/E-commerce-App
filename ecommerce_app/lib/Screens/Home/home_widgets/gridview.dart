@@ -34,7 +34,7 @@ class _GridviewwidgetState extends State<Gridviewwidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 233, 232, 232),
+        // color: const Color.fromARGB(255, 233, 232, 232),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
